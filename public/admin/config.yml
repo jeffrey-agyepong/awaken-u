@@ -1,3 +1,31 @@
-backend:
-  name: git-gateway
-  branch: master # Branch to update (optional; defaults to master)
+# General site configuration
+site:
+  title: Your Site Title
+  url: https://www.example.com
+  description: Your site description
+  author: Your Name
+  lang: en
+
+# Media configuration
+media_folder: path/to/media
+public_folder: /media
+
+# Collections configuration
+collections:
+  - name: blog
+    label: Blog
+    folder: content/blog
+    create: true
+    slug: '{{slug}}'
+    fields:
+      - { name: title, label: Title, widget: string }
+      - { name: date, label: Date, widget: datetime }
+      - { name: body, label: Body, widget: markdown }
+
+# Media library configuration
+media_library:
+  name: cloudinary
+  config:
+    cloud_name: YOUR_CLOUD_NAME
+    api_key: YOUR_API_KEY
+    api_secret: YOUR_API_SECRET
